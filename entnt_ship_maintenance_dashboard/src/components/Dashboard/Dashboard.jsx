@@ -168,17 +168,17 @@ const Dashboard = () => {
 
   // Get job type icon
   const getJobTypeIcon = (type) => {
-    if (!type) return <FiCalendar className="job-icon" size={18} />;
+    if (!type) return <FiCalendar className="job-icon" size={20} />;
     
     switch(type.toLowerCase()) {
       case 'inspection':
-        return <FiFilter className="job-icon inspection" size={18} />;
+        return <FiFilter className="job-icon inspection" size={20} />;
       case 'repair':
-        return <FiSettings className="job-icon repair" size={18} />;
+        return <FiSettings className="job-icon repair" size={20} />;
       case 'maintenance':
-        return <FiRefreshCw className="job-icon maintenance" size={18} />;
+        return <FiRefreshCw className="job-icon maintenance" size={20} />;
       default:
-        return <FiCalendar className="job-icon" size={18} />;
+        return <FiCalendar className="job-icon" size={20} />;
     }
   };
 
@@ -214,25 +214,25 @@ const Dashboard = () => {
   const quickActions = [
     { 
       label: 'Manage Ships', 
-      icon: <FiAnchor className="quick-link-icon" size={24} />, 
+      icon: <FiAnchor className="quick-link-icon" size={28} />, 
       color: 'blue',
       link: '/ships' 
     },
     { 
       label: 'Manage Components', 
-      icon: <FiSettings className="quick-link-icon" size={24} />, 
+      icon: <FiSettings className="quick-link-icon" size={28} />, 
       color: 'green',
       link: '/components' 
     },
     { 
       label: 'Schedule Jobs', 
-      icon: <FiCalendar className="quick-link-icon" size={24} />, 
+      icon: <FiCalendar className="quick-link-icon" size={28} />, 
       color: 'amber',
       link: '/jobs/new' 
     },
     { 
       label: 'View Calendar', 
-      icon: <FiList className="quick-link-icon" size={24} />, 
+      icon: <FiList className="quick-link-icon" size={28} />, 
       color: 'purple',
       link: '/calendar' 
     }
@@ -266,7 +266,7 @@ const Dashboard = () => {
       <div className="dashboard-section quick-actions-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiList className="section-icon" /> Quick Actions
+            <FiList className="section-icon" size={20} /> Quick Actions
           </h3>
         </div>
         <div className="quick-links-container">
@@ -289,10 +289,10 @@ const Dashboard = () => {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiActivity className="section-icon" /> Performance Metrics
+            <FiActivity className="section-icon" size={20} /> Performance Metrics
           </h3>
           <button className="refresh-button">
-            <FiRefreshCw size={isMobile ? 14 : 16} /> Refresh
+            <FiRefreshCw size={16} /> Refresh
           </button>
         </div>
         
@@ -310,7 +310,7 @@ const Dashboard = () => {
       <div className="dashboard-section recent-jobs-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiClock className="section-icon" /> Recent Jobs
+            <FiClock className="section-icon" size={20} /> Recent Jobs
           </h3>
           <Link to="/jobs" className="view-all-link">
             View All <FiChevronRight size={16} />
@@ -320,12 +320,12 @@ const Dashboard = () => {
         {recentJobs.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">
-              <FiCalendar size={48} />
+              <FiCalendar size={60} />
             </div>
             <h4>No Jobs Found</h4>
             <p>There are no maintenance jobs scheduled in the system.</p>
             <Link to="/jobs/new" className="add-job-button">
-              <FiPlus size={16} /> Schedule Job
+              <FiPlus size={18} /> Schedule Job
             </Link>
           </div>
         ) : (
@@ -368,11 +368,11 @@ const Dashboard = () => {
                     <td>
                       <div className="job-actions">
                         <Link to={`/jobs/${job.id}`} className="view-job-button">
-                          <FiEye size={isMobile ? 14 : 16} />
+                          <FiEye size={16} />
                           {!isMobile && <span>View</span>}
                         </Link>
                         <Link to={`/jobs/${job.id}/edit`} className="edit-job-button">
-                          <FiSettings size={isMobile ? 14 : 16} />
+                          <FiSettings size={16} />
                           {!isMobile && <span>Edit</span>}
                         </Link>
                       </div>
@@ -386,7 +386,7 @@ const Dashboard = () => {
         
         <div className="card-footer">
           <Link to="/jobs/new" className="add-job-button">
-            <FiPlus size={16} /> Schedule New Job
+            <FiPlus size={18} /> Schedule New Job
           </Link>
         </div>
       </div>
