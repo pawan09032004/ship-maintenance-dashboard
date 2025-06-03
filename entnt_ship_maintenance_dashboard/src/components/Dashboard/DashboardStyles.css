@@ -1,0 +1,743 @@
+/* Maritime-themed dashboard styles */
+
+/* Dashboard Styles */
+:root {
+  --kpi-blue: #3B82F6;
+  --kpi-blue-light: rgba(59, 130, 246, 0.1);
+  --kpi-red: #EF4444;
+  --kpi-red-light: rgba(239, 68, 68, 0.1);
+  --kpi-amber: #F59E0B;
+  --kpi-amber-light: rgba(245, 158, 11, 0.1);
+  --kpi-green: #10B981;
+  --kpi-green-light: rgba(16, 185, 129, 0.1);
+  --kpi-purple: #8B5CF6;
+  --kpi-purple-light: rgba(139, 92, 246, 0.1);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition-default: all 0.3s ease;
+  --border-color: #F3F4F6;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --bg-hover: #F9FAFB;
+}
+
+/* Dashboard container */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .dashboard-container {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-container {
+    gap: 2rem;
+  }
+}
+
+/* Dashboard Top Section - Combined KPIs and Quick Actions */
+.dashboard-top-section {
+  margin-bottom: 1rem;
+}
+
+.combined-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .combined-top-grid {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .combined-top-grid {
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.kpi-cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .quick-actions-container {
+    gap: 1rem;
+  }
+}
+
+.quick-actions-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .quick-actions-title {
+    font-size: 1.125rem;
+  }
+}
+
+/* Quick Links Grid inside Quick Actions container */
+.quick-actions-container .quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  height: 100%;
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .quick-actions-container .quick-links-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .quick-actions-container .quick-links-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Dashboard Section */
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: fadeIn 0.5s ease forwards;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-color);
+}
+
+@media (min-width: 640px) {
+  .dashboard-section {
+    gap: 1rem;
+    border-radius: 0.625rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dashboard-section {
+    gap: 1.25rem;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+  }
+}
+
+.quick-actions-section {
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Header */
+.dashboard-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quick-actions-section .dashboard-section-header {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .dashboard-section-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .quick-actions-section .dashboard-section-header {
+    margin-bottom: 1.25rem;
+  }
+}
+
+.dashboard-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .dashboard-section-title {
+    font-size: 1.25rem;
+  }
+}
+
+.section-icon {
+  color: var(--kpi-blue);
+}
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+@media (min-width: 640px) {
+  .refresh-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.refresh-button:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: #E5E7EB;
+}
+
+/* KPI Cards Grid - Improved layout */
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .kpi-cards-grid {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+/* Quick Links Grid - Fixed spacing and layout */
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Chart containers - Improved responsiveness */
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .charts-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .charts-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Responsive touch-friendly styles for all interactive elements */
+.quick-link-card,
+.refresh-button,
+.view-all-link,
+.view-job-button,
+.edit-job-button,
+.add-job-button,
+.chart-info-button {
+  min-height: 44px; /* Minimum touch target size */
+}
+
+/* Table responsiveness */
+.jobs-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.jobs-table {
+  min-width: 600px; /* Ensure table doesn't get too squished */
+}
+
+/* Jobs Table Card - Improved styling */
+.jobs-table-card {
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background-color: white;
+  border: 1px solid var(--border-color);
+}
+
+.kpi-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #FAFAFA;
+}
+
+.kpi-chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.chart-info-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.chart-info-button:hover {
+  background-color: var(--kpi-blue-light);
+  color: var(--kpi-blue);
+}
+
+/* Improved table styling */
+.jobs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.jobs-table th {
+  padding: 0.875rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #F9FAFB;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.jobs-table td {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.job-row {
+  transition: background-color 0.2s ease;
+}
+
+.job-row:hover {
+  background-color: #F9FAFB;
+}
+
+.job-task {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.job-icon {
+  width: 2rem;
+  height: 2rem;
+  padding: 0.375rem;
+  border-radius: 0.375rem;
+  color: white;
+}
+
+.job-icon.inspection {
+  background-color: var(--kpi-blue);
+}
+
+.job-icon.repair {
+  background-color: var(--kpi-amber);
+}
+
+.job-icon.maintenance {
+  background-color: var(--kpi-green);
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-type {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.job-component {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.job-ship {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Improved badge styling */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge-high {
+  background-color: var(--kpi-red-light);
+  color: var(--kpi-red);
+}
+
+.badge-medium {
+  background-color: var(--kpi-amber-light);
+  color: var(--kpi-amber);
+}
+
+.badge-low {
+  background-color: var(--kpi-blue-light);
+  color: var(--kpi-blue);
+}
+
+.badge-success {
+  background-color: var(--kpi-green-light);
+  color: var(--kpi-green);
+}
+
+.badge-progress {
+  background-color: var(--kpi-amber-light);
+  color: var(--kpi-amber);
+}
+
+.badge-pending {
+  background-color: var(--kpi-blue-light);
+  color: var(--kpi-blue);
+}
+
+/* Job actions container */
+.job-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.add-job-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--kpi-blue);
+  color: white;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-default);
+  text-decoration: none;
+}
+
+.add-job-button:hover {
+  background-color: #2563EB;
+}
+
+/* Card Footer */
+.card-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  background-color: #FAFAFA;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--kpi-blue);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-default);
+  text-decoration: none;
+}
+
+.view-all-link:hover {
+  color: #2563EB;
+}
+
+/* Improved action buttons */
+.view-job-button, .edit-job-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: var(--transition-default);
+  text-decoration: none;
+}
+
+.view-job-button {
+  background-color: var(--kpi-blue-light);
+  color: var(--kpi-blue);
+}
+
+.edit-job-button {
+  background-color: var(--kpi-amber-light);
+  color: var(--kpi-amber);
+}
+
+.view-job-button:hover {
+  background-color: var(--kpi-blue);
+  color: white;
+}
+
+.edit-job-button:hover {
+  background-color: var(--kpi-amber);
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .dashboard-section-title {
+    font-size: 1.125rem;
+  }
+  
+  .jobs-table {
+    min-width: 650px;
+  }
+  
+  .quick-actions-title {
+    font-size: 1rem;
+  }
+  
+  .dashboard-section {
+    padding: 1rem;
+  }
+}
+
+/* Quick Link Card */
+.quick-link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0.75rem;
+  border-radius: 0.625rem;
+  background-color: white;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: var(--transition-default);
+  height: 100%;
+  min-height: 100px;
+  text-align: center;
+}
+
+.quick-link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.quick-link-card.blue {
+  border-left: 4px solid var(--kpi-blue);
+}
+
+.quick-link-card.green {
+  border-left: 4px solid var(--kpi-green);
+}
+
+.quick-link-card.amber {
+  border-left: 4px solid var(--kpi-amber);
+}
+
+.quick-link-card.purple {
+  border-left: 4px solid var(--kpi-purple);
+}
+
+.quick-link-icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.quick-link-card.blue .quick-link-icon {
+  color: var(--kpi-blue);
+}
+
+.quick-link-card.green .quick-link-icon {
+  color: var(--kpi-green);
+}
+
+.quick-link-card.amber .quick-link-icon {
+  color: var(--kpi-amber);
+}
+
+.quick-link-card.purple .quick-link-icon {
+  color: var(--kpi-purple);
+}
+
+.quick-link-text {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Quick Actions Section */
+.quick-actions-section {
+  margin-bottom: 1.5rem;
+}
+
+.quick-links-container {
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+/* Quick Links Grid */
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Remove Job Status Distribution styles that are no longer needed */
+.job-status-container,
+.job-status-chart,
+.donut-chart-container,
+.donut-chart,
+.donut-hole,
+.donut-ring,
+.donut-segment,
+.donut-segment-1,
+.donut-segment-2,
+.donut-segment-3,
+.job-status-legend,
+.status-legend-item,
+.legend-color,
+.legend-color.in-progress,
+.legend-color.completed,
+.legend-color.pending,
+.legend-text {
+  /* These styles are no longer needed, but we'll keep them in the CSS file
+     in case they need to be reused later. */
+}
+
+/* Make the Quick Actions section match KPI card spacing */
+.dashboard-section.quick-actions-section {
+  padding: 1rem 1.25rem;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-section.quick-actions-section {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .quick-links-grid {
+    gap: 1.5rem;
+  }
+} 

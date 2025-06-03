@@ -1,0 +1,131 @@
+/* TableFix.css - Complete rewrite for horizontal table headers */
+
+/* Table wrapper with overflow handling */
+.ships-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Base table styles */
+.ships-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+}
+
+/* Table header - forced horizontal layout */
+.ships-table thead {
+  display: block;
+  width: 100%;
+  background: #F9FAFB;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.ships-table thead tr {
+  display: flex;
+  width: 100%;
+}
+
+/* Header cells with fixed widths */
+.ships-table thead th {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4B5563;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Fixed widths for columns */
+.ships-table thead th:nth-child(1) { flex: 3; }
+.ships-table thead th:nth-child(2) { flex: 2; }
+.ships-table thead th:nth-child(3) { flex: 2; }
+.ships-table thead th:nth-child(4) { flex: 2; }
+.ships-table thead th:nth-child(5) { flex: 2.5; }
+.ships-table thead th:nth-child(6) { flex: 1.5; }
+
+/* Content within the header */
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Header hover state */
+.sortable-header {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sortable-header:hover {
+  background-color: #F1F5F9;
+}
+
+/* Table body */
+.ships-table tbody {
+  display: block;
+  width: 100%;
+}
+
+/* Table rows */
+.ships-table tbody tr {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.ships-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Data cells matching the header widths */
+.ships-table tbody td {
+  flex: 1;
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.ships-table tbody td:nth-child(1) { flex: 3; }
+.ships-table tbody td:nth-child(2) { flex: 2; }
+.ships-table tbody td:nth-child(3) { flex: 2; }
+.ships-table tbody td:nth-child(4) { flex: 2; }
+.ships-table tbody td:nth-child(5) { flex: 2.5; }
+.ships-table tbody td:nth-child(6) { flex: 1.5; }
+
+/* Empty state handling */
+.ships-table tbody tr td[colspan="6"] {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.ships-empty-state {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ships-empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #6B7280;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .ships-table {
+    min-width: 600px;
+  }
+} 
