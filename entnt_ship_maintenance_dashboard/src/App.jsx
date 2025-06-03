@@ -8,7 +8,7 @@ import { CalendarProvider } from './contexts/CalendarContext';
 import ProtectedRoute from './components/Authentication/ProtectedRoute';
 import Login from './components/Authentication/Login';
 import Register from './components/Authentication/Register';
-import { Dashboard } from './components/dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import ShipList from './components/Ships/ShipList';
 import ShipForm from './components/Ships/ShipForm';
 import ShipDetails from './components/Ships/ShipDetails';
