@@ -6,7 +6,7 @@ import { useJobs } from '../../contexts/JobsContext';
 import { 
   FiAnchor, FiSettings, FiClock, FiAlertTriangle, 
   FiCalendar, FiFilter, FiRefreshCw, FiChevronRight,
-  FiList, FiInfo, FiActivity, FiCheckCircle, FiPlus, FiEye 
+  FiList, FiInfo, FiActivity, FiCheckCircle, FiPlus, FiEye, FiEdit 
 } from 'react-icons/fi';
 import KPICard from './KPICard';
 import KPICharts from './KPICharts';
@@ -49,7 +49,7 @@ const Dashboard = () => {
     {
       title: 'Total Ships',
       value: totalShips,
-      icon: <FiAnchor size={isMobile ? 18 : 22} />,
+      icon: <FiAnchor size={isMobile ? 20 : 24} />,
       color: 'blue',
       change: 8,
       changeType: 'increase',
@@ -58,7 +58,7 @@ const Dashboard = () => {
     {
       title: 'Overdue Maintenance',
       value: overdueComponents,
-      icon: <FiAlertTriangle size={isMobile ? 18 : 22} />,
+      icon: <FiAlertTriangle size={isMobile ? 20 : 24} />,
       color: 'red',
       change: 12,
       changeType: 'decrease', // Changed to decrease as this is positive
@@ -67,7 +67,7 @@ const Dashboard = () => {
     {
       title: 'Jobs in Progress',
       value: jobsInProgress,
-      icon: <FiClock size={isMobile ? 18 : 22} />,
+      icon: <FiClock size={isMobile ? 20 : 24} />,
       color: 'amber',
       change: 5,
       changeType: 'increase',
@@ -76,7 +76,7 @@ const Dashboard = () => {
     {
       title: 'Jobs Completed',
       value: jobsCompleted,
-      icon: <FiCheckCircle size={isMobile ? 18 : 22} />,
+      icon: <FiCheckCircle size={isMobile ? 20 : 24} />,
       color: 'green',
       change: 23,
       changeType: 'increase',
@@ -168,17 +168,17 @@ const Dashboard = () => {
 
   // Get job type icon
   const getJobTypeIcon = (type) => {
-    if (!type) return <FiCalendar className="job-icon" size={20} />;
+    if (!type) return <FiCalendar className="job-icon" size={22} />;
     
     switch(type.toLowerCase()) {
       case 'inspection':
-        return <FiFilter className="job-icon inspection" size={20} />;
+        return <FiFilter className="job-icon inspection" size={22} />;
       case 'repair':
-        return <FiSettings className="job-icon repair" size={20} />;
+        return <FiSettings className="job-icon repair" size={22} />;
       case 'maintenance':
-        return <FiRefreshCw className="job-icon maintenance" size={20} />;
+        return <FiRefreshCw className="job-icon maintenance" size={22} />;
       default:
-        return <FiCalendar className="job-icon" size={20} />;
+        return <FiCalendar className="job-icon" size={22} />;
     }
   };
 
@@ -214,25 +214,25 @@ const Dashboard = () => {
   const quickActions = [
     { 
       label: 'Manage Ships', 
-      icon: <FiAnchor className="quick-link-icon" size={28} />, 
+      icon: <FiAnchor className="quick-link-icon" size={32} />, 
       color: 'blue',
       link: '/ships' 
     },
     { 
       label: 'Manage Components', 
-      icon: <FiSettings className="quick-link-icon" size={28} />, 
+      icon: <FiSettings className="quick-link-icon" size={32} />, 
       color: 'green',
       link: '/components' 
     },
     { 
       label: 'Schedule Jobs', 
-      icon: <FiCalendar className="quick-link-icon" size={28} />, 
+      icon: <FiCalendar className="quick-link-icon" size={32} />, 
       color: 'amber',
       link: '/jobs/new' 
     },
     { 
       label: 'View Calendar', 
-      icon: <FiList className="quick-link-icon" size={28} />, 
+      icon: <FiList className="quick-link-icon" size={32} />, 
       color: 'purple',
       link: '/calendar' 
     }
@@ -266,7 +266,7 @@ const Dashboard = () => {
       <div className="dashboard-section quick-actions-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiList className="section-icon" size={20} /> Quick Actions
+            <FiList className="section-icon" size={22} /> Quick Actions
           </h3>
         </div>
         <div className="quick-links-container">
@@ -289,10 +289,10 @@ const Dashboard = () => {
       <div className="dashboard-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiActivity className="section-icon" size={20} /> Performance Metrics
+            <FiActivity className="section-icon" size={22} /> Performance Metrics
           </h3>
           <button className="refresh-button">
-            <FiRefreshCw size={16} /> Refresh
+            <FiRefreshCw size={18} /> Refresh
           </button>
         </div>
         
@@ -310,22 +310,22 @@ const Dashboard = () => {
       <div className="dashboard-section recent-jobs-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
-            <FiClock className="section-icon" size={20} /> Recent Jobs
+            <FiClock className="section-icon" size={22} /> Recent Jobs
           </h3>
           <Link to="/jobs" className="view-all-link">
-            View All <FiChevronRight size={16} />
+            View All <FiChevronRight size={18} />
           </Link>
         </div>
         
         {recentJobs.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">
-              <FiCalendar size={60} />
+              <FiCalendar size={64} />
             </div>
             <h4>No Jobs Found</h4>
             <p>There are no maintenance jobs scheduled in the system.</p>
             <Link to="/jobs/new" className="add-job-button">
-              <FiPlus size={18} /> Schedule Job
+              <FiPlus size={20} /> Schedule Job
             </Link>
           </div>
         ) : (
@@ -368,11 +368,11 @@ const Dashboard = () => {
                     <td>
                       <div className="job-actions">
                         <Link to={`/jobs/${job.id}`} className="view-job-button">
-                          <FiEye size={16} />
+                          <FiEye size={18} />
                           {!isMobile && <span>View</span>}
                         </Link>
                         <Link to={`/jobs/${job.id}/edit`} className="edit-job-button">
-                          <FiSettings size={16} />
+                          <FiEdit size={18} />
                           {!isMobile && <span>Edit</span>}
                         </Link>
                       </div>
@@ -386,7 +386,7 @@ const Dashboard = () => {
         
         <div className="card-footer">
           <Link to="/jobs/new" className="add-job-button">
-            <FiPlus size={18} /> Schedule New Job
+            <FiPlus size={20} /> Schedule New Job
           </Link>
         </div>
       </div>
