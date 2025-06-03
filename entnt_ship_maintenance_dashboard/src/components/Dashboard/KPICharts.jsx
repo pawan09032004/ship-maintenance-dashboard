@@ -12,7 +12,7 @@ import './KPIStyles.css';
 
 // Custom tooltip component for bar chart
 const CustomBarTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
+  if (active && payload && payload.length && payload[0] && payload[0].payload) {
     return (
       <div className="custom-tooltip" style={{ 
         backgroundColor: 'white', 
@@ -21,8 +21,8 @@ const CustomBarTooltip = ({ active, payload }) => {
         borderRadius: '4px', 
         boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
       }}>
-        <p className="label" style={{ margin: 0, fontWeight: 600 }}>{`${payload[0].payload.category}`}</p>
-        <p className="value" style={{ margin: '5px 0 0', fontSize: '14px' }}>{`Overdue Components: ${payload[0].value}`}</p>
+        <p className="label" style={{ margin: 0, fontWeight: 600 }}>{`${payload[0].payload.category || 'Unknown'}`}</p>
+        <p className="value" style={{ margin: '5px 0 0', fontSize: '14px' }}>{`Overdue Components: ${payload[0].value || 0}`}</p>
       </div>
     );
   }
@@ -31,7 +31,7 @@ const CustomBarTooltip = ({ active, payload }) => {
 
 // Custom tooltip component for pie chart
 const CustomPieTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
+  if (active && payload && payload.length && payload[0] && payload[0].name) {
     return (
       <div className="custom-tooltip" style={{ 
         backgroundColor: 'white', 
@@ -50,7 +50,7 @@ const CustomPieTooltip = ({ active, payload }) => {
 
 // Custom tooltip for line chart
 const CustomLineTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
+  if (active && payload && payload.length && payload[0] && payload[0].value !== undefined) {
     return (
       <div className="custom-tooltip" style={{ 
         backgroundColor: 'white', 
@@ -59,7 +59,7 @@ const CustomLineTooltip = ({ active, payload, label }) => {
         borderRadius: '4px', 
         boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
       }}>
-        <p className="label" style={{ margin: 0, fontWeight: 600 }}>{label}</p>
+        <p className="label" style={{ margin: 0, fontWeight: 600 }}>{label || 'Unknown'}</p>
         <p className="value" style={{ margin: '5px 0 0', fontSize: '14px' }}>
           {`${payload[0].value} jobs completed`}
         </p>

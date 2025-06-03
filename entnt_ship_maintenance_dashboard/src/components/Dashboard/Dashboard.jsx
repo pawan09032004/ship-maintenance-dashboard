@@ -168,6 +168,8 @@ const Dashboard = () => {
 
   // Get job type icon
   const getJobTypeIcon = (type) => {
+    if (!type) return <FiCalendar className="job-icon" />;
+    
     switch(type.toLowerCase()) {
       case 'inspection':
         return <FiFilter className="job-icon inspection" />;
@@ -182,6 +184,8 @@ const Dashboard = () => {
 
   // Get priority badge class
   const getPriorityBadgeClass = (priority) => {
+    if (!priority) return 'badge badge-low';
+    
     switch(priority.toLowerCase()) {
       case 'high':
         return 'badge badge-high';
@@ -194,6 +198,8 @@ const Dashboard = () => {
 
   // Get status badge class
   const getStatusBadgeClass = (status) => {
+    if (!status) return 'badge badge-pending';
+    
     switch(status.toLowerCase()) {
       case 'completed':
         return 'badge badge-success';
