@@ -168,17 +168,17 @@ const Dashboard = () => {
 
   // Get job type icon
   const getJobTypeIcon = (type) => {
-    if (!type) return <FiCalendar className="job-icon" />;
+    if (!type) return <FiCalendar className="job-icon" size={18} />;
     
     switch(type.toLowerCase()) {
       case 'inspection':
-        return <FiFilter className="job-icon inspection" />;
+        return <FiFilter className="job-icon inspection" size={18} />;
       case 'repair':
-        return <FiSettings className="job-icon repair" />;
+        return <FiSettings className="job-icon repair" size={18} />;
       case 'maintenance':
-        return <FiRefreshCw className="job-icon maintenance" />;
+        return <FiRefreshCw className="job-icon maintenance" size={18} />;
       default:
-        return <FiCalendar className="job-icon" />;
+        return <FiCalendar className="job-icon" size={18} />;
     }
   };
 
@@ -214,25 +214,25 @@ const Dashboard = () => {
   const quickActions = [
     { 
       label: 'Manage Ships', 
-      icon: <FiAnchor className="quick-link-icon" size={22} />, 
+      icon: <FiAnchor className="quick-link-icon" size={24} />, 
       color: 'blue',
       link: '/ships' 
     },
     { 
       label: 'Manage Components', 
-      icon: <FiSettings className="quick-link-icon" size={22} />, 
+      icon: <FiSettings className="quick-link-icon" size={24} />, 
       color: 'green',
       link: '/components' 
     },
     { 
       label: 'Schedule Jobs', 
-      icon: <FiCalendar className="quick-link-icon" size={22} />, 
+      icon: <FiCalendar className="quick-link-icon" size={24} />, 
       color: 'amber',
       link: '/jobs/new' 
     },
     { 
       label: 'View Calendar', 
-      icon: <FiList className="quick-link-icon" size={22} />, 
+      icon: <FiList className="quick-link-icon" size={24} />, 
       color: 'purple',
       link: '/calendar' 
     }
@@ -307,7 +307,7 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Jobs Table */}
-      <div className="dashboard-section">
+      <div className="dashboard-section recent-jobs-section">
         <div className="dashboard-section-header">
           <h3 className="dashboard-section-title">
             <FiClock className="section-icon" /> Recent Jobs
