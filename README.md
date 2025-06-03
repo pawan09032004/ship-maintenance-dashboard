@@ -439,11 +439,5 @@ The application is deployed on [Deployment Platform] and can be accessed at:
 - Ensure responsive design works across breakpoints
 - Write tests for new features (if applicable)
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 Developed for ENTNT Ship Maintenance Management System
-# ship-maintenance-dashboard
+
