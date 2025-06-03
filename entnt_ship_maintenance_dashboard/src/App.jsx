@@ -21,8 +21,14 @@ import JobDetails from './components/Jobs/JobDetails';
 import Calendar from './components/Calendar/Calendar';
 import { Layout } from './components/navigation';
 import NotificationDemo from './components/Notifications/NotificationDemo';
+import { useEffect } from 'react';
+import { initializeLocalStorage } from './utils/localStorageUtils';
 
 function App() {
+  useEffect(() => {
+    initializeLocalStorage();
+  }, []);
+
   return (
     <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <AuthProvider>
